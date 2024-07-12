@@ -11,7 +11,8 @@
 * The current code base assumes two categories with "personal" first and "career" second. 
 * However, these categories may change in future.
 */
-class SurveyController extends Controller {
+class SurveyController extends Controller
+{
 
   /*
   * Output the survey results as JSON
@@ -74,14 +75,28 @@ class CompletionRow {
 
   // Consider adding percentage method here. To be implemented
   /* function percentage(): float {
-    return 0.0 ;
+    return 0.0;
   } */
+  
+}
+
+
+// Dummy entity class with default constructors only setting the values
+// of $this->id, $this->text and $this->type, 
+class AnswerRow
+{
+
+  function __construct(public int $id, public string $text, public string $type)
+  {
+
+  }
   
 }
 
 // Mock SurveyResult class
 
-class SurveyResult {
+class SurveyResult
+{
 
   /*
   * @param int $surveyId
@@ -114,15 +129,18 @@ class SurveyResult {
 
 // Mimic Laravel-link controllers and Response classes
 // Should be a base Laravel Controller
-abstract class Controller {
+abstract class Controller
+{
   
 }
 
 // Mock Laravel Reponse class. Only for testing purposes
-class Response {
+class Response
+{
 
   // Mimics responses()->json() in Laravel
-  public function json($data, $statusCode = 403) {
+  public function json($data, $statusCode = 403): void
+  {
     header("Content-Type", "application/json");
     print json_encode($data);
     exit;
@@ -130,24 +148,14 @@ class Response {
 }
 
 // Dummy response() function. Return a response method
-function response() {
+function response()
+{
   return new Response();
-}
-
-// Dummy entity class with default constructors only setting the values
-// of $this->id, $this->text and $this->type, 
-class AnswerRow {
-
-  function __construct(public int $id, public string $text, public string $type)
-  {
-
-  }
-  
 }
 
 /**
  * Run code in test mode
  */
  $controller = new SurveyController();
-
  $controller->renderResults();
+ 
