@@ -4,7 +4,7 @@ This index.php incldues a controller that mimics a full-fat Laravel controller (
 
 The controller's ```renderResults()``` method is called at the bottom of the file so it will run at the command line via ```php index.php``` with JSON output.
 
-All data sets and variable values are hard-coded for testing purposes. In production, these would come from a ```$request``` object and database queries.
+All data sets and variable values are hard-coded for testing purposes. In production, these would come from request parameters and database queries.
 
 A user, Jane Blogger, identified by $userId, is answering questions in a survey identified by $surveyId. So far, she has answered 3 questions, 1 in the personal category and 2 in the career category. The current survey has 3 personal questions and 9 career questions. Each question has one answer.
 
