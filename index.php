@@ -22,16 +22,16 @@ class SurveyController extends Controller {
   */
   public function renderResults() {
 
-    // These would normally come from a $request object
+    // These would normally come from a $request object and/or JWT token via middleware
     // current ids are hard-coded here
-    $surveyid = 4;
+    $surveyId = 4;
     $userId = 209;
 
     // Get array of answers as AnswerRow objects
-    $answers =  SurveyResult::getAnswers($surveyid, $userId);
+    $answers =  SurveyResult::getAnswers($surveyId, $userId);
   
     // Get array of completion results as CompletionRow objects
-    $completions = SurveyResult::getCompletionResults($surveyid, $userId);
+    $completions = SurveyResult::getCompletionResults($surveyId, $userId);
 
     // A successful response requires two completion reuslt rows
     // the first for personal questions and the second for career questions
@@ -52,7 +52,7 @@ class SurveyController extends Controller {
 
     $details = [
       'status' => $statusKey,
-      'surveyId' => $surveyid,
+      'surveyId' => $surveyId,
       'personal' => $personalPercentage,
       'career' => $careerPercentage,
       'answers' => $answers
