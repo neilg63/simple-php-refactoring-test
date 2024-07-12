@@ -1,6 +1,6 @@
 # Simple PHP Refactoring Test
 
-This index.php incldues a controller that mimics a full-fat Laravel controller (but without any external framework dependencies). It should run in any php 8+ environment.
+The main ```index.php``` file includes a controller that mimics a full-fat Laravel controller (but without any external framework dependencies). It should run in any php 8+ environment.
 
 The controller's ```renderResults()``` method is called at the bottom of the file so it will run at the command line via ```php index.php``` with JSON output.
 
