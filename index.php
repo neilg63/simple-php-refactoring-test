@@ -36,7 +36,7 @@ class SurveyController extends Controller {
     // A successful response requires two completion reuslt rows
     // the first for personal questions and the second for career questions
     $statusKey = count($completions) === 2 ? 'success' : 'invalid';
-    $statusCode = count($completions) === 2 ? 400 : 406;
+    $statusCode = count($completions) === 2 ? 200 : 406;
 
     // Can you refactor this code block to return early if we have insufficient data
     // and reduce copy-and-paste procedures
