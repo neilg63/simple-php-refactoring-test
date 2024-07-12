@@ -1,13 +1,15 @@
 <?php
 
 /*
-* This controller mimics a Laravel controller (without any Laravel dependencies)
-* Its renderResulys function is called below.
-* The data is hard-coded for testing purposes.
-* Your task is only to refactor the code within renderResults() ,
-* implement a percentage() method in the CompletionRow class
-* and suggest improvements to support more question categories in future.
-* The current code base assumes two categories with "personal" first and "career" second;
+* This controller mimics a Laravel controller (without any external dependencies)
+* Its renderResults function is called below.
+* All data-sets and variables are hard-coded for testing purposes.
+* Your task is only to:
+* 1) Refactor the code within renderResults() ,
+* 2) implement a percentage() method in the CompletionRow class
+* 3) Suggest improvements to support more question categories in future.
+* The current code base assumes two categories with "personal" first and "career" second. 
+* However, these categories may change in future.
 */
 class SurveyController extends Controller {
 
