@@ -1,4 +1,4 @@
-# Simple PHP Refectoring Test
+# Simple PHP Refactoring Test
 
 This index.php incldues a controller that mimics a full-fat Laravel controller (but without any framework dependencies). It should run in any php 8+ environment.
 
