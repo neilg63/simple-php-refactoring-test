@@ -27,8 +27,10 @@ class SurveyController extends Controller {
     $surveyid = 4;
     $userId = 209;
 
+    // Get array of answers as AnswerRow objects
     $answers =  SurveyResult::getAnswers($surveyid, $userId);
   
+    // Get array of completion results as CompletionRow objects
     $completions = SurveyResult::getCompletionResults($surveyid, $userId);
 
     // A successful response requires two completion reuslt rows
@@ -60,34 +62,6 @@ class SurveyController extends Controller {
   }
 }
 
-// Should be a base Laravel Controller
-abstract class Controller {
-  
-}
-
-// Mock Laravel Reponse class. Only for testing purposes
-class Responder {
-  public function json($data, $statusCode = 403) {
-    header("Content-Type", "application/json");
-    print json_encode($data);
-    exit;
-  }
-}
-
-function response() {
-  return new Responder();
-}
-
-// Dummy entity class with default constructors only setting the values
-// of $this->id, $this->text and $this->type, 
-class AnswerRow {
-
-  function __construct(public int $id, public string $text, public string $type)
-  {
-
-  }
-  
-}
 
 // Dummy entity class with default constructors only setting the values
 // of $this->type, $this->count and $this->total, 
@@ -108,6 +82,12 @@ class CompletionRow {
 // Mock SurveyResult class
 
 class SurveyResult {
+
+  /*
+  * @param int $surveyId
+  * @param int $userId
+  * @return array<int, CompletionRow>
+  */
   public static function getCompletionResults($surveyId = 0, $userId = 0)
   {
     // Normally the count and total would be dynamically calculated
@@ -117,6 +97,11 @@ class SurveyResult {
     ];
   }
 
+  /*
+  * @param int $surveyId
+  * @param int $userId
+  * @return array<int, AnswerRow>
+  */
   public static function getAnswers($surveyId = 0, $userId = 0)
   {
     return [
@@ -127,7 +112,38 @@ class SurveyResult {
   }
 }
 
+// Mimic Laravel-link controllers and Response classes
+// Should be a base Laravel Controller
+abstract class Controller {
+  
+}
 
+// Mock Laravel Reponse class. Only for testing purposes
+class Response {
+
+  // Mimics responses()->json() in Laravel
+  public function json($data, $statusCode = 403) {
+    header("Content-Type", "application/json");
+    print json_encode($data);
+    exit;
+  }
+}
+
+// Dummy response() function. Return a response method
+function response() {
+  return new Response();
+}
+
+// Dummy entity class with default constructors only setting the values
+// of $this->id, $this->text and $this->type, 
+class AnswerRow {
+
+  function __construct(public int $id, public string $text, public string $type)
+  {
+
+  }
+  
+}
 
 /**
  * Run code in test mode
