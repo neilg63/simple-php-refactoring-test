@@ -8,6 +8,10 @@ All data sets and variable values are hard-coded for testing purposes. In produc
 
 A user, Jane Blogger, identified by $userId, is answering questions in a survey identified by $surveyId. So far, she has answered 3 questions, 1 in the personal category and 2 in the career category. The current survey has 3 personal questions and 9 career questions. Each question has one answer.
 
+This output should show status (success, invalid), the percentage completed by category key and the answers given so far. 
+
+The API endpoint would be called by a frontend application (e.g. React, Vue or similar) with a payload containing the ```surveyId```. The ```userId`` may come from a JWT token;
+
 Your task is only to:
 
 1. Refactor the code within ```renderResults()```
