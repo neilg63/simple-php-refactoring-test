@@ -45,7 +45,7 @@ class SurveyController extends Controller {
   
     $careerPercentage = ($completions[1]->count / $completions[1]->total) * 100;
 
-    // Suggest implementation
+    // Suggest implementation for
     // $careerPercentage = $completions[1]->percentage();
     
     // Suggest other improvements
