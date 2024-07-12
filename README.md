@@ -10,7 +10,7 @@ A user, Jane Blogger, identified by $userId, is answering questions in a survey 
 
 This output should show status (success, invalid), the percentage completed by category key and the answers given so far. 
 
-The API endpoint would be called by a frontend application (e.g. React, Vue or similar) with a payload containing the ```surveyId```. The ```userId`` may come from a JWT token;
+The API endpoint would be called by a frontend application (e.g. React, Vue or similar) with a payload containing the ```surveyId```. The ```userId``` may come from a JWT token;
 
 Your task is only to:
 
